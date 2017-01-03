@@ -1,0 +1,128 @@
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <title>
+
+        </title>
+                <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css">
+                <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/components/container.min.css">
+                  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/components/dropdown.min.css">
+                <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/components/popup.min.css">
+        <script
+        src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/components/dropdown.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/components/popup.min.js"></script>
+        <style>
+    body>.ui.container{
+    padding-top: 5em;
+    padding-bottom: 5em;
+  }
+    .ui.card>.image {height:200px}
+        </style>
+    </head>
+<body>
+<div class="ui fixed transparent inverted menu">
+    <div class="ui container">
+      <a href="#" class="header item">
+        설문조사
+      </a>
+      <a href="#" class="item">Home</a>
+      <div class="ui simple dropdown item">
+        Dropdown <i class="dropdown icon"></i>
+        <div class="menu">
+          <a class="item" href="#">Link Item</a>
+          <a class="item" href="#">Link Item</a>
+          <div class="divider"></div>
+          <div class="header">Header Item</div>
+          <div class="item">
+            <i class="dropdown icon"></i>
+            Sub Menu
+            <div class="menu">
+              <a class="item" href="#">Link Item</a>
+              <a class="item" href="#">Link Item</a>
+            </div>
+          </div>
+          <a class="item" href="#">Link Item</a>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="ui container">
+
+    <h2 class="ui header">write</h2>
+    <div class="ui four cards">
+   
+    </div>
+      
+
+               <!-- <div class="ui form">
+                    <div class="five wide field">
+                    <div class="field inline">
+                        <label for="firstname">firstname</label>
+                        <input name="first_name" placeholder="Name"/>
+                    </div>
+                     <div class="field">
+                        <label for="last_name">last_name</label>
+                        <input name="last_name" placeholder="last_name"/>
+                    </div>
+                    </div>
+                </div>
+                -->
+
+        <div class="ui compact vertical labeled icon menu" style="position:absolute;right:220px">
+       
+        <button class="ui blue icon button">
+            <i class="icon Add Circle"> </i>
+            
+        </button>
+         <div class="item">
+            <i class="icon Angle Double Up"></i>
+            위로
+        </div>
+         <div class="item">
+            <i class="icon Angle Double Down"></i>
+            아래로
+        </div>
+        <div class="item">
+            <i class="icon"></i>
+        </div>
+    </div>          
+</div>
+<div class="ui sticky fixed bottom"  style="right:70;bottom:40px;">
+<!--<div class="ui teal buttons">
+  <div class="ui button">Save</div>
+  <div class="ui combo top right pointing dropdown icon button">
+    <i class="dropdown icon"></i>
+    <div class="menu">
+      <div class="item"><i class="edit icon"></i> Edit</div>
+      <div class="item"><i class="delete icon"></i> Delete</div>
+      <div class="item"><i class="hide icon"></i> Hide</div>
+    </div>
+  </div>
+</div>-->
+<button class="ui huge button red"><i class="icon Write"></i>등록</button>
+</div>
+<script>
+$('.dropdown')
+  .dropdown({
+    // you can use any ui transition
+    transition: 'drop'
+  })
+;
+$('#itemDropList')
+  .dropdown({
+    onChange: function(value, text, $selectedItem) {
+      // custom action
+      alert('change');
+    },
+     
+  })
+;
+
+</script>
+    </body>
+</html>
