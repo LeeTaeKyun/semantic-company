@@ -1,49 +1,241 @@
 <html>
     
     <head>
+        <meta charset="utf-8">
         <title>
 
         </title>
                 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css">
                 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/components/container.min.css">
+                  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/components/dropdown.min.css">
 
         <script
         src="https://code.jquery.com/jquery-3.1.1.min.js"
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
         crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/components/dropdown.min.js"></script>
         <style>
-             .ui.container {
+    body>.ui.container{
     padding-top: 5em;
     padding-bottom: 5em;
   }
+    .ui.card>.image {height:200px}
         </style>
     </head>
-    <body>
-
-            <div class="ui container">
-                    <h2 class="ui header">설문조사리스트</h2>
-                    <div class="ui compact vertical labeled icon menu">
-                    
-                        <div class="item">
-                                <i class="home icon"></i>
-                                home
-                        </div>
-                         <div class="item">
-                            <i class="info icon"></i>
-                            about
-                        </div>
-                         <div class="item">
-                             <i class="users icon"></i>
-                             contact
-                        </div>
-                         <div class="item">
-                             <i class="sign in icon"></i>
-                             sign in
-                        </div>
+<body>
+<div class="ui fixed inverted menu">
+    <div class="ui container">
+      <a href="#" class="header item">
+        설문조사
+      </a>
+      <a href="#" class="item">Home</a>
+      <div class="ui simple dropdown item">
+        Dropdown <i class="dropdown icon"></i>
+        <div class="menu">
+          <a class="item" href="#">Link Item</a>
+          <a class="item" href="#">Link Item</a>
+          <div class="divider"></div>
+          <div class="header">Header Item</div>
+          <div class="item">
+            <i class="dropdown icon"></i>
+            Sub Menu
+            <div class="menu">
+              <a class="item" href="#">Link Item</a>
+              <a class="item" href="#">Link Item</a>
+            </div>
+          </div>
+          <a class="item" href="#">Link Item</a>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="ui container">
+    <h2 class="ui header">List</h2>
+    <div class="ui four cards">
+    <div class="ui card">
+        <div class="image dimmable">
+        <div class="ui blurring inverted dimmer transition hidden">
+            <div class="content">
+            <div class="center">
+                <div class="ui teal button">Add Friend</div>
+            </div>
+            </div>
+        </div>
+        <img src="" >
+        </div>
+        <div class="content">
+        <div class="header">Title</div>
+        <div class="meta">
+            <a class="group">Meta</a>
+        </div>
+        <div class="description">One or two sentence description that may go to several lines</div>
+        </div>
+        <div class="extra content">
+            <a class="right floated created">
+            <div class="ui icon">
+                <div class="ui top left pointing dropdown">
+                    <i class="setting icon"></i>
+                    <div class="menu">
+                    <div class="item"><i class="edit icon"></i>수정</div>
+                    <div class="item"><i class="delete icon"></i>삭제</div>
+                    <div class="item"><i class="hide icon"></i>숨김</div>
                     </div>
+                </div>
+            </div>
+            </a>
+        <!--<a class="right floated created"><i class="icon setting"></i></a>-->
+        <a class="friends">Arbitrary</a>
+        </div>
+    </div>
+     <div class="ui card">
+        <div class="image dimmable">
+        <div class="ui blurring inverted dimmer transition hidden">
+            <div class="content">
+            <div class="center">
+                <div class="ui teal button">Add Friend</div>
+            </div>
+            </div>
+        </div>
+        <img src="" >
+        </div>
+        <div class="content">
+        <div class="header">Title</div>
+        <div class="meta">
+            <a class="group">Meta</a>
+        </div>
+        <div class="description">One or two sentence description that may go to several lines</div>
+        </div>
+        <div class="extra content">
+            <a class="right floated created">
+            <div class="ui icon">
+                <div class="ui top left pointing dropdown">
+                    <i class="setting icon"></i>
+                    <div class="menu">
+                    <div class="item"><i class="edit icon"></i>수정</div>
+                    <div class="item"><i class="delete icon"></i>삭제</div>
+                    <div class="item"><i class="hide icon"></i>숨김</div>
+                    </div>
+                </div>
+            </div>
+            </a>
+        <!--<a class="right floated created"><i class="icon setting"></i></a>-->
+        <a class="friends">Arbitrary</a>
+        </div>
+    </div>
+     <div class="ui card">
+        <div class="image dimmable">
+        <div class="ui blurring inverted dimmer transition hidden">
+            <div class="content">
+            <div class="center">
+                <div class="ui teal button">Add Friend</div>
+            </div>
+            </div>
+        </div>
+        <img src="" >
+        </div>
+        <div class="content">
+        <div class="header">Title</div>
+        <div class="meta">
+            <a class="group">Meta</a>
+        </div>
+        <div class="description">One or two sentence description that may go to several lines</div>
+        </div>
+        <div class="extra content">
+            <a class="right floated created">
+            <div class="ui icon">
+                <div class="ui top left pointing dropdown">
+                    <i class="setting icon"></i>
+                    <div class="menu">
+                    <div class="item"><i class="edit icon"></i>수정</div>
+                    <div class="item"><i class="delete icon"></i>삭제</div>
+                    <div class="item"><i class="hide icon"></i>숨김</div>
+                    </div>
+                </div>
+            </div>
+            </a>
+        <!--<a class="right floated created"><i class="icon setting"></i></a>-->
+        <a class="friends">Arbitrary</a>
+        </div>
+    </div>
+    
+    </div>
+     <div class="ui four cards">
+    <div class="ui card">
+        <div class="image dimmable">
+        <div class="ui blurring inverted dimmer transition hidden">
+            <div class="content">
+            <div class="center">
+                <div class="ui teal button">Add Friend</div>
+            </div>
+            </div>
+        </div>
+        <img src="" >
+        </div>
+        <div class="content">
+        <div class="header">Title</div>
+        <div class="meta">
+            <a class="group">Meta</a>
+        </div>
+        <div class="description">One or two sentence description that may go to several lines</div>
+        </div>
+        <div class="extra content">
+            <a class="right floated created">
+            <div class="ui icon">
+                <div class="ui top left pointing dropdown">
+                    <i class="setting icon"></i>
+                    <div class="menu">
+                    <div class="item"><i class="edit icon"></i>수정</div>
+                    <div class="item"><i class="delete icon"></i>삭제</div>
+                    <div class="item"><i class="hide icon"></i>숨김</div>
+                    </div>
+                </div>
+            </div>
+            </a>
+        <!--<a class="right floated created"><i class="icon setting"></i></a>-->
+        <a class="friends">Arbitrary</a>
+        </div>
+    </div>
+     </div>
+      <div class="ui four cards">
+    <div class="ui card">
+        <div class="image dimmable">
+        <div class="ui blurring inverted dimmer transition hidden">
+            <div class="content">
+            <div class="center">
+                <div class="ui teal button">Add Friend</div>
+            </div>
+            </div>
+        </div>
+        <img src="" >
+        </div>
+        <div class="content">
+        <div class="header">Title</div>
+        <div class="meta">
+            <a class="group">Meta</a>
+        </div>
+        <div class="description">One or two sentence description that may go to several lines</div>
+        </div>
+        <div class="extra content">
+            <a class="right floated created">
+            <div class="ui icon">
+                <div class="ui top left pointing dropdown" id="itemDropList">
+                    <i class="setting icon" ></i>
+                    <div class="menu">
+                    <div class="item"><i class="edit icon"></i>수정</div>
+                    <div class="item"><i class="delete icon"></i>삭제</div>
+                    <div class="item"><i class="hide icon"></i>숨김</div>
+                    </div>
+                </div>
+            </div>
+            </a>
+        <!--<a class="right floated created"><i class="icon setting"></i></a>-->
+        <a class="friends">Arbitrary</a>
+        </div>
+    </div>
+      </div>
 
-                <div class="ui form">
+               <!-- <div class="ui form">
                     <div class="five wide field">
                     <div class="field inline">
                         <label for="firstname">firstname</label>
@@ -55,9 +247,38 @@
                     </div>
                     </div>
                 </div>
+                -->
+    </div>
+<div class="ui sticky fixed bottom"  style="right:70;bottom:40px;">
+<div class="ui teal buttons">
+  <div class="ui button">Save</div>
+  <div class="ui combo top right pointing dropdown icon button">
+    <i class="dropdown icon"></i>
+    <div class="menu">
+      <div class="item"><i class="edit icon"></i> Edit</div>
+      <div class="item"><i class="delete icon"></i> Delete</div>
+      <div class="item"><i class="hide icon"></i> Hide</div>
+    </div>
+  </div>
+</div>
+</div>
+<script>
+$('.dropdown')
+  .dropdown({
+    // you can use any ui transition
+    transition: 'drop'
+  })
+;
+$('#itemDropList')
+  .dropdown({
+    onChange: function(value, text, $selectedItem) {
+      // custom action
+      alert('change');
+    },
+     
+  })
+;
 
-            </div>
-
-        
+</script>
     </body>
 </html>
