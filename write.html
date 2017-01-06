@@ -61,13 +61,29 @@
         <div class="column">
           <div class="ui fluid vertical menu">
           
-                <div class="field">
+                <div class="field eight wide">
                 <label>설문조사제목</label>
-                <input type="text" name="first-name" placeholder="설문조사 제목을 입력하세요">
+                <input type="text" name="subject" placeholder="설문조사 제목을 입력하세요" onfocus="true">
               </div>
-            
 
+                <div class="field">
+                <label>설문조사내용</label>
+                <textarea type="text" name="memo" placeholder="설문조사 내용을 입력하세요" onfocus="true"></textarea>
+              </div>
+               <div class="ui fluid vertical menu wide">
+                 <div class="field eight wide">
+                <label>질문명</label>
+                <input type="text" name="subject" placeholder="질문을 입력하세요" onfocus="true">
+              </div>
+                  <div class="ui compact menu">
+                   <!--<select class="ui dropdown">
+                    <option value="1"><i class="selected radio icon"></i> 객관식</option>
+                    <option value="0"><i></i>체크박스</option>
+                  </select>-->
+                  </div>
+                </div>  
           </div>
+          
         </div>
     </div>
       </form>
@@ -137,7 +153,9 @@ $('#itemDropList')
      
   })
 ;
-
+$(document).ready(function(){
+  $("input[name='subject']").focus();
+});
 </script>
     </body>
 </html>
