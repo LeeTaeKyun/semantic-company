@@ -70,7 +70,7 @@
     </div>
   <div class="ui menu two column grid">
     <div class="row centered">
-      <a href="#Move" id="move "><i class="icon Move large black"></i></a>
+      <a href="#Move" id="moveItem "><i class="icon Move large black"></i></a>
     </div>
 
     <div class="row item-div"><!-- item -->
@@ -79,9 +79,9 @@
           <input type="text" name="subject" placeholder="질문을 입력하세요" onfocus="true">
         </div>
       </div>
-      <div class="item-sub-div column">
+      <div class="item-sub-div  column">
         <div class="customDropdownSearchTextInput ui selection dropdown ">
-          <input type="hidden" name="gender">
+          <input type="hidden" name="gender"> 
           <div class="default text"><i class="icon Selected Radio"></i> 질문종류</div>
           <i class="dropdown icon"></i>
           <div class="menu">
@@ -94,8 +94,11 @@
         </div>
       </div>
     </div><!-- item -->
-
+     <div class="ui menu grid">
+    zzzz
   </div>
+  </div>
+ 
 
 </form>
       
@@ -135,21 +138,23 @@
 <button class="ui huge button purple" onclick="location.href='index.html'"><i class="icon List"></i>목록</button>
 </div>
 <script>
-$('.dropdown')
-  .dropdown({
+$(".ui.dropdown").dropdown("set selected", "1");
+$('.dropdown').dropdown({
     // you can use any ui transition
-    transition: 'drop'
-  })
-;
-$('#itemDropList')
-  .dropdown({
-    onChange: function(value, text, $selectedItem) {
-      // custom action
-      alert('change');
-    },
+    transition: 'drop',
+     onChange:function(val){
+      
+     }
+  });
+ 
+// $('#itemDropList')
+//   .dropdown({
+//     onChange: function(value, text, $selectedItem) {
+//       // custom action
+//       alert('change');
+//     },
      
-  })
-;
+//   });
 $(document).ready(function(){
   $("input[name='subject']").focus();
 });
