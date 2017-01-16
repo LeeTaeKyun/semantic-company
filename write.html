@@ -167,14 +167,20 @@
 $(".ui.dropdown").dropdown("set selected", "1"); 
 //객관식으로 무조건 설정
 
-$('.item-opt-select').dropdown({ 
-    // you can use any ui transition
-    transition: 'drop',
-     onChange:function(val){
-       survey.optChange(this, val);
-     }
-  });
+// $('.item-opt-select').dropdown({ 
+//     // you can use any ui transition
+//     transition: 'drop',
+//      onChange:function(val){
+//        survey.optChange(this, val);
+//      }
+//   });
 //dropdown이용하기
+function selectDropDown(e){
+
+ $(e).parents(".item-group").find(".dropdown").dropdown();
+}
+
+
 var survey = new function() {
  
     //this.type = "";
@@ -278,6 +284,8 @@ var survey = new function() {
          "<div class=\"item item-type\" data-value=\"5\"><i class=\"icon Align Left\"></i>장문형</div></div> </div>  </div></div></div>";
       itemCont.append(opt_html);
 
+      itemCont.find(".dropdown").dropdown("set selected", "1"); 
+
     },
     this.itemCopy = function(e){
 
@@ -286,6 +294,7 @@ var survey = new function() {
      var item_copy_item = $(e).parents(".item-group").clone();
 
      itemCont.find(".item-group").eq(item_now_num).after(item_copy_item);
+     itemCont.find(".item-group").find(".dropdown").dropdown("set selected", "1"); 
      itemCont.find(".item-group").eq(item_now_num+1).find("input[name='subject']").focus();
     },
 
