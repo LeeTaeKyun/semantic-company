@@ -1,6 +1,3 @@
-<?
-echo phpinfo();
-
-
-print_r($_POST);
+<?php
+    echo "hello nathan!";
 ?>

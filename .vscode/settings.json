@@ -1,0 +1,12 @@
+// 설정을 이 파일에 넣어서 기본 설정과 사용자 설정을 덮어씁니다.
+{
+
+    "php.validate.enable": false,
+
+  // php 실행 파일을 가리킵니다.
+    "php.validate.executablePath": "C:/php/php.exe",
+
+  // 저장 시 또는 입력 시 Linter의 실행 여부입니다.
+  "php.validate.run": "onType"
+
+}
