@@ -211,7 +211,7 @@ var survey = new function() {
         "<div class=\"field\"><i class=\"icon Radio large\"></i><input type=\"text\" name=\"item_opt_input[]\" class=\"input-style1\"  placeholder=\"옵션1\"><a href=\"#optRemove\" onclick=\"survey.optRemove(this)\"><i class=\"icon large Remove black\"></i></a></div>"+
         "</div></div>"+
         "<div class=\"column\">"+
-        "<div class=\"field\"><i class=\"icon Radio large\"></i> <p class=\"display-in-b\"><b onclick=\"survey.optAdd(this, 1);\">옵션추가</b>&nbsp;또는&nbsp; <a href=\"#gita\" onclick=\"survey.optAdd(this, 2);\">기타추가</a></p></div></div>"+
+        "<div class=\"field\"><i class=\"icon Warning large\"></i> <p class=\"display-in-b\"><b onclick=\"survey.optAdd(this, 1);\">옵션추가</b>&nbsp;또는&nbsp; <a href=\"#gita\" onclick=\"survey.optAdd(this, 2);\">기타추가</a></p></div></div>"+
         "<div class=\"column right aligned\"><div class=\"ui clearing divider\"></div><div class=\"row\"><i class=\"icon Copy link large\" onclick=\"survey.itemCopy(this);\"></i><i class=\"icon Trash link large\" onclick=\"survey.itemRemove(this)\"></i>"+
         "<div class=\"ui toggle checkbox\"><input type=\"checkbox\" name=\"true_or_not[]\" value=\"1\"><label>필수체크</label>"+
         "</div></div></div></div>";
