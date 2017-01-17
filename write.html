@@ -150,14 +150,9 @@
         </div>
     </div> 
 <div class="ui sticky fixed bottom"  style="right:70;bottom:40px;">
-
 <button class="ui huge button purple" onclick="location.href='index.html'"><i class="icon List"></i>목록</button>
-
-<!--<i class="huge icons">
-  <i class="big loading Moon icon blue"></i>
-  <i class="Write Square icon blue"></i>
-</i>-->
 </div>
+
 <script>
 $(".ui.dropdown").dropdown("set selected", "1"); 
 //객관식으로 무조건 설정
@@ -174,10 +169,9 @@ $(".ui.dropdown").dropdown("set selected", "1");
 function selectDropDown(e){
 
  $(e).parents(".item-group").find(".dropdown").dropdown();
+
 }
 
-
-  $(".item-container").on("focus",".item-group .item-opt-select, input[name='subject[]'], input[name='item_opt_input[]']",function(){
 
 $(".item-container").on("focus",".item-group .item-opt-select, input[name='subject[]'], input[name='item_opt_input[]']",function(){
 
@@ -366,7 +360,7 @@ var survey = new function() {
      itemCont.find(".item-group").eq(item_now_num).after(item_copy_item);
      $(".item-group").removeClass("active");
      itemCont.find(".item-group").eq(item_now_num+1).addClass("active");
-    itemCont.find(".item-group.active").find(".dropdown").dropdown(); 
+     itemCont.find(".item-group.active").find(".dropdown").dropdown(); 
      itemCont.find(".item-group").eq(item_now_num+1).find("input[name='subject[]']").focus();
     },
     
@@ -437,8 +431,8 @@ $(function () {
 
       }
     });
- 
+
 });
 </script>
-    </body>
+</body>
 </html>
