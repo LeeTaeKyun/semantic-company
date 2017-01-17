@@ -138,11 +138,10 @@
             위로
         </div>
          <div class="item">
-<<<<<<< HEAD
+
             <i class="icon Angle Double Down link" ></i>
-=======
+
             <i class="icon Angle Double Down link" onclick="survey.itemSave();"></i>
->>>>>>> de1d2d202af26c3d830243a5495766212082aa12
             아래로
         </div>
         <div class="item">
@@ -177,11 +176,11 @@ function selectDropDown(e){
  $(e).parents(".item-group").find(".dropdown").dropdown();
 }
 
-<<<<<<< HEAD
+
   $(".item-container").on("focus",".item-group .item-opt-select, input[name='subject[]'], input[name='item_opt_input[]']",function(){
-=======
+
 $(".item-container").on("focus",".item-group .item-opt-select, input[name='subject[]'], input[name='item_opt_input[]']",function(){
->>>>>>> de1d2d202af26c3d830243a5495766212082aa12
+
   $(".item-container .item-group").removeClass("active");
   $(this).parents(".item-group").addClass("active");
 }); //focus에 active주기
@@ -203,7 +202,7 @@ var survey = new function() {
       $type="";
       $require = "";
       $(".item-container .item-group").each(function(i){
-<<<<<<< HEAD
+
         //console.log($(this).find("input[name='true_or_not[]']").val());
         if($(".item-container .item-group").length==i+1){
           $subject += $(this).find("input[name='subject[]']").val();
