@@ -8,7 +8,6 @@
 		-- return으로 문자열 보내줌.
 		비로그인 스킨의 스팸성 게시물 방지를 위한 문자열 입력 함수
 	*****************************************************************************************/
-	
 
 	function getColums($table){
 		$connect = $dbConn[1];
@@ -30,8 +29,6 @@
 		
 	}
 	function findParents2($id ="", $check =""){
-	
-
 		$connect = $dbInfo[1];
 		$output = "";
 		$query = "SELECT * FROM inner_category WHERE indexcode = ".$id;

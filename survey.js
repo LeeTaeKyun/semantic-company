@@ -1,14 +1,7 @@
 $(".ui.dropdown").dropdown("set selected", "1"); 
 //객관식으로 무조건 설정
 
- $('.item-opt-select').dropdown({ 
-    // you can use any ui transition
-     transition: 'drop',
-     onChange:function(val){
 
-     survey.optChange(this, val);
-      }
-   });
 //dropdown이용하기
 function selectDropDown(e){
 
@@ -32,13 +25,13 @@ $(".item-container").on("change","input[name='true_or_not[]']",function(){
 
 var survey = new function() {
   
-
     this.opt = $("input[name='opt_select[]']").val();
   
     this.itemSave = function(e){
       $question = "";
       $type="";
       $require = "";
+      $gita = "";
       $(".item-container .item-group").each(function(i){
 
         //console.log($(this).find("input[name='true_or_not[]']").val());
@@ -51,61 +44,83 @@ var survey = new function() {
           }else{
             $require +="0";
           }
+          if($(this).find("input[name='item_opt_gita[]']").length >  0){
+        	  
+        	  $gita+=$(this).find("input[name='item_opt_gita[]']").length;
+          }else{
+        	  
+        	  $gita+="0";
+          }
 
         }else{
           $question += $(this).find("input[name='subject[]']").val()+";||;";
           $type += $(this).find("input[name='opt_select[]']").val()+";||;";
-          if($(this).find("input[name='true_or_not[]']").is(":checked")){
-            $require += $(this).find("input[name='true_or_not[]']").val()+";||;";
+          if($(this).find("input[name='true_or_not']").is(":checked")){
+            $require += $(this).find("input[name='true_or_not']").val()+";||;";
           }else{
             $require +="0"+";||;";
+          }
+  		  if($(this).find("input[name='item_opt_gita[]']").length >  0){
+        	  
+        	  $gita+=$(this).find("input[name='item_opt_gita[]']").length+";||;";
+          }else{
+	        	  
+        	  $gita+="0;||;";
           }
 
         }
         $opt_input ="";
 
-        $(this).find("#optSquare .item-opt-row").each(function(j){
-          if($(this).parents(".item-opt-div").find(".item-opt-row").length==j+1){
+        $(this).find("#optSquare .item-opt-row input[name='item_opt_input[]']").each(function(j){
+          if($(this).parents(".item-opt-div").find("input[name='item_opt_input[]']").length==j+1){
 
-              $opt_input+=$(this).find("input[name='item_opt_input[]']").val();
+              $opt_input+=$(this).val();
           }else{
 
-              $opt_input+=$(this).find("input[name='item_opt_input[]']").val()+";|";
+              $opt_input+=$(this).val()+";|;";
           }
 
         });
 
         $examples = "<input type=\"hidden\" name=\"examples[]\" value=\""+$opt_input+"\">";
-        $questions = "<input type=\"hidden\" name=\"questions[]\" value=\""+$question+"\">";
-        $types = "<input type=\"hidden\" name=\"types[]\" value=\""+$type+"\">";
-        $req_check = "<input type=\"hidden\" name=\"req_check[]\" value=\""+$require+"\">";
-
+        $questions = "<input type=\"hidden\" name=\"questions\" value=\""+$question+"\">";
+        $types = "<input type=\"hidden\" name=\"types\" value=\""+$type+"\">";
+        $req_check = "<input type=\"hidden\" name=\"req_check\" value=\""+$require+"\">";
+        $gitas = "<input type=\"hidden\" name=\"gitas\" value=\""+$gita+"\">";
         if($(this).find("input[name='examples[]']").length > 0){
             $(this).find("input[name='examples[]']").val($opt_input);
           }else{
             $(this).append($examples);
         }
 
-         if($(".item-container").find("input[name='questions[]']").length > 0){
-            $(".item-container").find("input[name='questions[]']").val($question);
-          }else{
-            $(".item-container .js-to-server").append($questions);
-        }
+	     if($(".item-container").find("input[name='questions']").length > 0){
+	        $(".item-container").find("input[name='questions']").val($question);
+	      }else{
+	        $(".item-container .js-to-server").append($questions);
+	      }
 
-        if($(".item-container").find("input[name='types[]']").length > 0){
-            $(".item-container").find("input[name='types[]']").val($type);
+        if($(".item-container").find("input[name='types']").length > 0){
+            $(".item-container").find("input[name='types']").val($type);
           }else{
             $(".item-container .js-to-server").append($types);
         }
 
-         if($(".item-container").find("input[name='req_check[]']").length > 0){
-            $(".item-container").find("input[name='req_check[]']").val($require);
+         if($(".item-container").find("input[name='req_check']").length > 0){
+            $(".item-container").find("input[name='req_check']").val($require);
           }else{
             $(".item-container .js-to-server").append($req_check);
         }
+         
+         if($(".item-container").find("input[name='gitas']").length > 0){
+             $(".item-container").find("input[name='gitas']").val($gita);
+           }else{
+             $(".item-container .js-to-server").append($gitas);
+         }
         
       });
       html2CanvasPicture();
+      
+     $("#writeForm").submit();
     },
 
     this.optRemove = function(e){
@@ -123,7 +138,8 @@ var survey = new function() {
     },
 
     this.optAdd = function(e, opt_type){
-     var item_opt_type = $("input[name='opt_select[]']").val();
+
+     var item_opt_type = $(e).parents(".item-group").find("input[name='opt_select[]']").val();
      var optSquare = $(e).parents("#optSquare");
      var opt_row_num = optSquare.find(".item-opt-div .item-opt-row input:not(.input-gita)").length+1;
      
@@ -171,7 +187,7 @@ var survey = new function() {
           }else{
             optSquare.find(".item-opt-div").append(
             "<div class=\"item-opt-row column\"><div class=\"field \">"+
-            "<i class=\"icon Write large\"></i><input name=\"item-opt-gita[]\" class=\"input-style1 input-gita\"  placeholder=\"기타는 하나만 추가가능\" readonly=\"readonly\"><a href=\"#optRemove\" onclick=\"survey.optRemove(this)\">"+
+            "<i class=\"icon Write large\"></i><input name=\"item_opt_gita[]\" class=\"input-style1 input-gita\"  placeholder=\"기타는 하나만 추가가능\" readonly=\"readonly\"><a href=\"#optRemove\" onclick=\"survey.optRemove(this)\">"+
             "<i class=\"icon large Remove black\"></i></a></div></div>"
           );
           }
@@ -220,6 +236,7 @@ var survey = new function() {
         itemCont.append(opt_html);
         itemCont.find(".item-group.active").find("input[name='subject[]']").focus();
         itemCont.find(".item-group.active .dropdown").dropdown("set selected", "1");
+       
     },
 
     this.itemCopy = function(e){
@@ -233,44 +250,58 @@ var survey = new function() {
      itemCont.find(".item-group").eq(item_now_num+1).addClass("active");
      itemCont.find(".item-group.active").find(".dropdown").dropdown(); 
      itemCont.find(".item-group").eq(item_now_num+1).find("input[name='subject[]']").focus();
+     
     },
     
     this.optChange = function(e,val){
-
-      $(e).parents(".item-group").find("#optSquare .item-opt-row").remove();
+      
+      e.parents(".item-group").find("#optSquare .item-opt-row").remove();
 
       if(val==1){
         var opt_html ="<div class=\"item-opt-row column\"><div class=\"field \">"+
-          "<i class=\"icon Radio large\"></i><input class=\"input-style1 input-radio\"  placeholder=\"옵션1\" ><a href=\"#optRemove\" onclick=\"survey.optRemove(this)\">"+
+          "<i class=\"icon Radio large\"></i><input name=\"item_opt_input[]\" class=\"input-style1 input-radio\"  placeholder=\"옵션1\" ><a href=\"#optRemove\" onclick=\"survey.optRemove(this)\">"+
           "<i class=\"icon large Remove black\"></i></a></div></div>";
-          $(e).parents(".item-group").find("#optSquare .item-opt-div").append(opt_html);
+          e.parents(".item-group").find("#optSquare .item-opt-div").append(opt_html);
       }else if(val==2){
          var opt_html ="<div class=\"item-opt-row column\"><div class=\"field \">"+
-          "<i class=\"icon Square Outline large\"></i><input class=\"input-style1 input-checkbox\"  placeholder=\"옵션1\" ><a href=\"#optRemove\" onclick=\"survey.optRemove(this)\">"+
+          "<i class=\"icon Square Outline large\"></i><input name=\"item_opt_input[]\" class=\"input-style1 input-checkbox\"  placeholder=\"옵션1\" ><a href=\"#optRemove\" onclick=\"survey.optRemove(this)\">"+
           "<i class=\"icon large Remove black\"></i></a></div></div>";
-          $(e).parents(".item-group").find("#optSquare .item-opt-div").append(opt_html);
+          e.parents(".item-group").find("#optSquare .item-opt-div").append(opt_html);
           
       }else if(val==3){
         var opt_html ="<div class=\"item-opt-row column\"><div class=\"field \">"+
-          "<i class=\"icon List large\"></i><input class=\"input-style1 input-select\"  placeholder=\"옵션1\" ><a href=\"#optRemove\" onclick=\"survey.optRemove(this)\">"+
+          "<i class=\"icon List large\"></i><input name=\"item_opt_input[]\" class=\"input-style1 input-select\"  placeholder=\"옵션1\" ><a href=\"#optRemove\" onclick=\"survey.optRemove(this)\">"+
           "<i class=\"icon large Remove black\"></i></a></div></div>";
-          $(e).parents(".item-group").find("#optSquare .item-opt-div").append(opt_html);
+          e.parents(".item-group").find("#optSquare .item-opt-div").append(opt_html);
       }else if(val==4){
          var opt_html ="<div class=\"item-opt-row column\"><div class=\"field \">"+
-          "<i class=\"icon Text Cursor large\"></i><input class=\"input-style2 input-short\"  placeholder=\"단답형\" readonly=\"readonly\"><a href=\"#optRemove\" onclick=\"survey.optRemove(this)\">"+
+          "<i class=\"icon Text Cursor large\"></i><input name=\"item_opt_input[]\" class=\"input-style2 input-short\"  placeholder=\"단답형\" readonly=\"readonly\"><a href=\"#optRemove\" onclick=\"survey.optRemove(this)\">"+
           "<i class=\"icon large Remove black\"></i></a></div></div>";
-          $(e).parents(".item-group").find("#optSquare .item-opt-div").append(opt_html);
+          e.parents(".item-group").find("#optSquare .item-opt-div").append(opt_html);
       }else if(val==5){
         var opt_html ="<div class=\"item-opt-row column\"><div class=\"field \">"+
-          "<i class=\"icon Align Left large\"></i><input class=\"input-style3 input-long\"  placeholder=\"장문형\" readonly=\"readonly\"><a href=\"#optRemove\" onclick=\"survey.optRemove(this)\">"+
+          "<i class=\"icon Align Left large\"></i><input name=\"item_opt_input[]\" class=\"input-style3 input-long\"  placeholder=\"장문형\" readonly=\"readonly\"><a href=\"#optRemove\" onclick=\"survey.optRemove(this)\">"+
           "<i class=\"icon large Remove black\"></i></a></div></div>";
-          $(e).parents(".item-group").find("#optSquare .item-opt-div").append(opt_html);
+          e.parents(".item-group").find("#optSquare .item-opt-div").append(opt_html);
       }
     }
 
 }
-
 $(function () {
+  // $(".item-group .item-opt-select").dropdown({ 
+  //   // you can use any ui transition
+  //    //transition: 'drop',
+  //    onChange:function(val){
+  //      console.log(val);
+  //     }
+  //  });
+    $(".item-container").on("change",".item-group input[name='opt_select[]']",function(){
+        $val = $(this).val();
+        survey.optChange($(this).parents(".item-opt-select"), $val);
+    });
+
+
+ 
     $('.item-opt-div').sortable({
          //connectWith: ".item-opt-div",
         placeholder: "ui-state-highlight",
